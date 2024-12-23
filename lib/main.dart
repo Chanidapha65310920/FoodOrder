@@ -80,7 +80,7 @@ void main() {
                             Icon(Icons.favorite, color: Colors.red),
                             SizedBox(width: 8),
                              Text("Hobby:", style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text("Read Book"),
+                      Text("Read Book , Go to the gym , Travel"),
                           ],
                         ),
                         Row(
