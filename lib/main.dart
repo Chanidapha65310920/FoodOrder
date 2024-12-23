@@ -15,7 +15,7 @@ void main() {
               children: [
                 // รูปภาพ
                 Image(
-                  width: 150,
+                  width: 200,
                   image: AssetImage("assets/images/fachi.jpg"),
                 ),
                 SizedBox(height: 10), // เว้นระยะห่างระหว่างรูปกับข้อความ
