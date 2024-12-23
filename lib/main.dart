@@ -13,6 +13,7 @@ void main() {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                 SizedBox(height: 20), // เว้นระยะห่างระหว่างตารางกับข้อมูลด้านล่าง
                 // รูปภาพ
                 Image(
                   width: 200,
