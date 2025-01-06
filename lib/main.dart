@@ -85,10 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
       // เพิ่มข้อมูลเมนูอาหารพร้อมจำนวนเฉพาะ
       _items.add(
-          'Food: ${randomMenu.name}, Price: ${randomMenu.price}, Description: ${randomMenu.description}, Prime Number: $randomPrime');
+        'Food: ${randomMenu.name}\nPrice: ${randomMenu.price}\nDescription: ${randomMenu.description}\nPrime Number: $randomPrime',
+      );
 
       // คำนวณผลรวมราคา
-      _totalPrice += double.tryParse(randomMenu.price.replaceAll(' THB', '')) ?? 0.0;
+      _totalPrice +=
+          double.tryParse(randomMenu.price.replaceAll(' THB', '')) ?? 0.0;
     });
   }
 
@@ -133,15 +135,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  title: Text(
-                    _items[index], // แสดงชื่อไอเท็ม
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w500),
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        _items[index].split('\n')[0], // แสดงชื่ออาหาร
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        _items[index].split('\n')[1], // แสดงราคาอาหาร
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                      Text(
+                        _items[index].split('\n')[2], // แสดงคำอธิบาย
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                      Text(
+                        _items[index].split('\n')[3], // แสดงจำนวนเฉพาะ
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.black),
+                      ),
+                    ],
                   ),
                   leading: CircleAvatar(
                     backgroundColor: Colors.deepPurple, // สีพื้นหลังของวงกลม
                     child: Text(
-                      '${_items[index].split('Prime Number: ')[1].split(' ')[0]}', // แสดงจำนวนเฉพาะจาก string
+                      '${_items[index].split('\n')[3].split(': ')[1]}', // แสดงจำนวนเฉพาะในวงกลม
                       style: const TextStyle(color: Colors.white),
                     ),
                   ),
